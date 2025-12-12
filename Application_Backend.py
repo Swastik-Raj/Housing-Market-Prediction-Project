@@ -9,7 +9,7 @@ import os
 MODEL_PATH = os.environ.get("MODEL_PATH", "./model.pkl")
 
 app = FastAPI(title="Housing Price Predictor API")
-
+#error
 
 class PredictRequest(BaseModel):
     state: str
