@@ -60,7 +60,7 @@ def predict(req: PredictRequest):
                 "state": req.state
             }])
         # If your model expects raw features (not a DataFrame), adapt here
-        pred = model.predict(df)
+    pred = model.predict(df)
         # If model.predict returns a single value or an array
         mean_pred = float(np.asarray(pred).ravel()[0])
         # Provide a simple +/- band for range (e.g., 10%) or if model supports quantiles, use them
