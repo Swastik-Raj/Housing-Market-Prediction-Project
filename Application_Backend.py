@@ -59,17 +59,16 @@ def predict(req: PredictRequest):
                 "mortgage_type": req.mortgage_type,
                 "state": req.state
             }])
-        # If your model expects raw features (not a DataFrame), adapt here
-        pred = model.predict(df)
-        # If model.predict returns a single value or an array
-        mean_pred = float(np.asarray(pred).ravel()[0])
-        # Provide a simple +/- band for range (e.g., 10%) or if model supports quantiles, use them
-        lower = mean_pred * 0.9
-        upper = mean_pred * 1.1
-        return PredictResponse(predicted_mean=round(mean_pred, 2), lower_bound=round(lower, 2),
-                               upper_bound=round(upper, 2))
+            # If your model expects raw features (not a DataFrame), adapt here
+            pred = model.predict(df)
+            # If model.predict returns a single value or an array
+            mean_pred = float(np.asarray(pred).ravel()[0])
+            # Provide a simple +/- band for range (e.g., 10%) or if model supports quantiles, use them
+            lower = mean_pred * 0.9
+            upper = mean_pred * 1.1
+            return PredictResponse(predicted_mean=round(mean_pred, 2), lower_bound=round(lower, 2), upper_bound=round(upper, 2))
         except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+            raise HTTPException(status_code=500, detail=str(e))
 
 
 if __name__ == "__main__":
