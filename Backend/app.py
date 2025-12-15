@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 from pydantic import BaseModel
 import joblib
@@ -6,15 +7,17 @@ import numpy as np
 import uvicorn
 import os
 
-
-from fastapi.middleware.cors import CORSMiddleware
-
-app = FastAPI()
-
-MODEL_PATH = os.environ.get("MODEL_PATH", "./model.pkl")
-
 app = FastAPI(title="Housing Price Predictor API")
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+MODEL_PATH = os.environ.get("MODEL_PATH", "./model.pkl")
 
 class PredictRequest(BaseModel):
     state: str
@@ -78,14 +81,6 @@ def predict(req: PredictRequest):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
