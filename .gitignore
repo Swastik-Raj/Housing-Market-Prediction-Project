@@ -1,0 +1,12 @@
+# ===== ML artifacts =====
+*.pkl
+Backend/model.pkl
+
+# ===== Python =====
+.venv/
+__pycache__/
+*.pyc
+
+# ===== Node =====
+node_modules/
+dist/
