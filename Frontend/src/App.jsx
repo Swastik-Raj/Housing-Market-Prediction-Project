@@ -3,8 +3,8 @@ import React, { useState } from "react";
 
 export default function App_Frontend(){
     const [stateValue, setStateValue] = useState('TX');
-    const [income, setIncome] = useState('75000');
-    const [mortgage, setMortgage] = useState('30yr_fixed');
+    const [beds, setBeds] = useState('3');
+    const [sqft, setSqft] = useState('2200');
     const [loading, setLoading] = useState(false);
     const [result, setResult] = useState(null);
     const [error, setError] = useState(null);
