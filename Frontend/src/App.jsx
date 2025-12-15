@@ -9,11 +9,13 @@ export default function App_Frontend(){
     const [result, setResult] = useState(null);
     const [error, setError] = useState(null);
 
+    const API_URL = import.meta.env.VITE_API_URL;
+
     const submit = async (e) => {
         e.preventDefault();
         setLoading(true); setError(null); setResult(null);
         try{
-            const res = await fetch('/api/predict', {
+            const res = await fetch(`${API_URL}/predict`, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({ state: stateValue, income: Number(income), mortgage_type: mortgage })
