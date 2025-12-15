@@ -23,8 +23,8 @@ MODEL_PATH = os.environ.get("MODEL_PATH", "./model.pkl")
 
 class PredictRequest(BaseModel):
     state: str
-    income: float
-    mortgage_type: str
+    beds: int
+    sqft: float
 
 
 class PredictResponse(BaseModel):
@@ -64,8 +64,8 @@ def predict(req: PredictRequest):
 
     try:
         df = pd.DataFrame([{
-            "income": float(req.income),
-            "mortgage_type": req.mortgage_type,
+            "sqft": req.sqft,
+            "beds": req.beds,
             "state": req.state
         }])
 

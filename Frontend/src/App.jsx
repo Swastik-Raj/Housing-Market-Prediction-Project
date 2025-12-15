@@ -19,7 +19,7 @@ export default function App_Frontend(){
             const res = await fetch(`${API_URL}/predict`, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({ state: stateValue, income: Number(income), mortgage_type: mortgage })
+                body: JSON.stringify({ state: stateValue, beds: Number(beds), sqft: Number(sqft) })
             });
         if(!res.ok){
             const text = await res.text();
