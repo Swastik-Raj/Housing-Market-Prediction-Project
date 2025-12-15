@@ -9,6 +9,7 @@ export default function App_Frontend(){
     const [result, setResult] = useState(null);
     const [error, setError] = useState(null);
 
+    console.log("API_URL =", API_URL);
     const API_URL = import.meta.env.VITE_API_URL;
 
     const submit = async (e) => {
@@ -73,4 +74,3 @@ return (
     </div>
     )
 }
-
