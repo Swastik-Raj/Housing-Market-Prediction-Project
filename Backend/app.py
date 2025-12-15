@@ -6,7 +6,7 @@ import joblib
 import numpy as np
 import uvicorn
 import os
-
+print("BACKEND FILE LOADED")
 app = FastAPI(title="Housing Price Predictor API")
 
 app.add_middleware(
@@ -16,6 +16,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+print("CORS MIDDLEWARE ATTACHED")
 
 MODEL_PATH = os.environ.get("MODEL_PATH", "./model.pkl")
 
