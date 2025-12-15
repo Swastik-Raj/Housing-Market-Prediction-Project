@@ -38,9 +38,9 @@ class PredictResponse(BaseModel):
 def load_model():
     global model, encoder
     try:
+        print("Loading model from:", os.path.abspath(MODEL_PATH))
         data = joblib.load(MODEL_PATH)
 
-        # Accept either a single object or a dict
         if isinstance(data, dict):
             model = data.get("model")
             encoder = data.get("encoder")
@@ -48,10 +48,10 @@ def load_model():
             model = data
             encoder = None
 
-        print("Model loaded from", MODEL_PATH)
+        print("Model loaded successfully:", type(model))
 
     except Exception as e:
-        print("Warning: could not load model:", e)
+        print("Failed to load model:", repr(e))
         model = None
         encoder = None
 
