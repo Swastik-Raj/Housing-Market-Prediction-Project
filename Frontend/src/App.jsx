@@ -42,20 +42,20 @@ return (
                     <input value={stateValue} onChange={e=>setStateValue(e.target.value)} className="mt-1 block w-full rounded-md border p-2" />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Annual Income (USD)</label>
+                        <label className="block text-sm font-medium">Number of Beds</label>
                         <input
                         type="number"
-                        value={income}
-                        onChange={e=>setIncome(e.target.value)}
+                        value={beds}
+                        onChange={e=>setBeds(e.target.value)}
                         className="mt-1 block w-full rounded-md border p-2" />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Mortgage Choice</label>
-                        <select value={mortgage} onChange={e=>setMortgage(e.target.value)} className="mt-1 block w-full rounded-md border p-2">
-                            <option value="30yr_fixed">30-year fixed</option>
-                            <option value="15yr_fixed">15-year fixed</option>
-                            <option value="adjustable">Adjustable</option>
-                        </select>
+                        <label className="block text-sm font-medium"> Square feet Size</label>
+                        <input
+                        type="number"
+                        value={sqft}
+                        onChange={e=>setSqft(e.target.value)}
+                        className="mt-1 block w-full rounded-md border p-2" />
                     </div>
                     <div>
                         <button disabled={loading} className="w-full py-2 rounded-xl bg-sky-600 text-white font-semibold">{loading? 'Predicting...':'Predict Price Range'}</button>
