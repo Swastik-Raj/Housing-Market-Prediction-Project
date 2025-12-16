@@ -10,3 +10,18 @@ __pycache__/
 # ===== Node =====
 node_modules/
 dist/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Models
+*.pkl
+*.joblib
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
