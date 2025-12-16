@@ -6,6 +6,7 @@ import joblib
 import numpy as np
 import uvicorn
 import os
+
 print("BACKEND FILE LOADED")
 app = FastAPI(title="Housing Price Predictor API")
 
