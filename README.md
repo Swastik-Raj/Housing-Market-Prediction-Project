@@ -71,7 +71,7 @@ The trained model file (`model.pkl`) is **not committed to GitHub** in order to:
 1. Open `Training Notebook/housing_model_training.ipynb`
 2. Run all cells
 3. Export the model as `model.pkl`
-4. Place the file in: Backend/model.pkl
+4. Place the file in: `Backend/model.pkl`
 
 ## Run Backend Locally
 
