@@ -75,15 +75,17 @@ The trained model file (`model.pkl`) is **not committed to GitHub** in order to:
 
 ## Run Backend Locally
 
+```bash
 cd Backend
 python -m venv .venv
 .\.venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn app:app --reload
-
+```
 ## Run Frontend Locally
-
+```bash
 cd Frontend
 npm install
 npm run dev
+```
 
